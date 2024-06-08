@@ -11,7 +11,6 @@
     </dialog>
 </div>
 
-
 <style>
     .overlay {
         position: fixed;
@@ -20,6 +19,7 @@
         height: 100%;
         background-color: #d9d9d9;
     }
+
     .modal-container {
         position: absolute;
         width: 200px;
