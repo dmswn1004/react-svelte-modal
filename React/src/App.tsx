@@ -26,7 +26,10 @@ export default function App() {
       <h1>TODO App</h1>
 
       <div className="container">
-        {todos.map((item) => <TodoItem key={item.id} item={item} />)}
+        {todos.length !== 0 ? 
+          todos.map((item) => <TodoItem key={item.id} item={item} />) 
+          : <p className="no-todo">할 일을 등록해주세요.</p>
+        }
       </div>
 
       <NewTodo />

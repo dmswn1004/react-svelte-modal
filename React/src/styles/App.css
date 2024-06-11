@@ -48,3 +48,8 @@
   justify-content: center;
   flex-direction: column;
 }
+
+.no-todo {
+  text-align: center;
+  color: #888;
+}
