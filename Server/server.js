@@ -19,29 +19,6 @@ server.post("/todos", (req, res) => {
   }
 });
 
-server.put("/todos/:id", (req, res) => {
-  const { id } = req.params;
-  const { content, completed } = req.body;
-
-  if (!content || !completed) res.status(400);
-
-  const db = router.db;
-  const todo = db
-    .get("todos")
-    .find({ id: Number(id) })
-    .value();
-
-  if (!todo) {
-    res.status(404).send("Todo not found");
-  } else {
-    db.get("todos")
-      .find({ id: Number(id) })
-      .assign(todo)
-      .write();
-    res.status(200).json(todo);
-  }
-});
-
 server.use(router);
 
 server.listen(8000, () => {
