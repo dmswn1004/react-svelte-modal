@@ -1,4 +1,4 @@
-import './index.css';
+import '../styles/button.css';
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { ButtonColor } from "../types/button";
 
