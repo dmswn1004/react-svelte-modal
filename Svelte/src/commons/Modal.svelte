@@ -10,7 +10,7 @@
 		<p>{content}</p>
 		<div>
 			<Button content="취소" onClick={closeModal} color="Secondary" />
-			<Button content="닫기" onClick={closeModal} color="Destructive" />
+			<Button content="확인" onClick={closeModal} color="Destructive" />
 		</div>
 	</dialog>
 </div>
@@ -21,7 +21,7 @@
 		inset: 0;
 		width: 100%;
 		height: 100%;
-		background-color: #d9d9d9;
+		background-color: rgba(0, 0, 0, 0.3);
 	}
 
 	.modal-container {
