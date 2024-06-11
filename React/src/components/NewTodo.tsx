@@ -1,12 +1,21 @@
 import "../styles/newTodo.css";
 import { useState } from "react"
 import Button from "../commons/Button"
+import { postNewTodo } from "../apis/postNewTodo";
 
 export default function NewTodo() {
   const [newTodo, setNewTodo] = useState<string>("")
 
-  const handleAddNewTodo = () => {
-    setNewTodo("")
+  const handleAddNewTodo =  () => {
+    if (newTodo === "") {
+      alert("할 일을 입력해주세요.");
+      return;
+    }
+    
+    postNewTodo(newTodo);
+    setNewTodo("");
+  
+    window.location.reload();
   }
 
   return (
