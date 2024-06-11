@@ -27,7 +27,7 @@ export default function App() {
 
       <div className="container">
         {todos.length !== 0 ? 
-          todos.map((item) => <TodoItem key={item.id} item={item} />) 
+          todos.map((item) => <TodoItem key={item.id} item={item} setTodos={setTodos}/>) 
           : <p className="no-todo">할 일을 등록해주세요.</p>
         }
       </div>

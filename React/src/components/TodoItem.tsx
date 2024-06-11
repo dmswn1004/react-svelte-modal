@@ -1,34 +1,27 @@
 import "../styles/todoItem.css";
-import Button from "../commons/Button";
 import { TodoType } from "../types/todo";
+import Button from "../commons/Button";
 import Modal from "../commons/Modal";
-import { deleteTodo } from "../apis/deleteTodo";
 import useModal from "../hooks/useModal";
+import useTodo from "../hooks/useTodo";
 
 interface TodoItemProps {
   item: TodoType;
+  setTodos: React.Dispatch<React.SetStateAction<TodoType[]>>;
 }
 
-export default function TodoItem({item}: TodoItemProps) {
+export default function TodoItem({item, setTodos}: TodoItemProps) {
   const { isOpen, openModal, closeModal } = useModal();
-
-  const handleDelete = () => {
-    deleteTodo(item.id);
-    window.location.reload();
-  }
+  const { handleUpdate, handleDelete } = useTodo({item, setTodos});
 
   return (
     <div className="todo-container">
       <label>
-        <input type="checkbox" checked={item.completed} onChange={() => {}}/>
+        <input type="checkbox" checked={item.completed} onChange={handleUpdate}/>
         <span>{item.content}</span> 
       </label>
 
-      <div className="btn-container">
-        <Button onClick={() => {}} color="secondary">수정</Button>
-        <Button onClick={openModal} color="destructive">삭제</Button>
-      </div>
-
+      <Button onClick={openModal} color="destructive">삭제</Button>
 
       {isOpen && <Modal content="할 일을 삭제하시겠습니까?" closeModal={closeModal} onConfirm={handleDelete} />}
     </div>
